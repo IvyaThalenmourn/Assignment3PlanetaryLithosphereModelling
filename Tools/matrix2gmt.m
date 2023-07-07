@@ -12,7 +12,7 @@ function [d] = matrix2gmt(A,Lon,Lat)
 %%%%%%%%%%%%%%% start of routine %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ll = length(Lat(:,1));
-ww = length(Lat(1,:));
+ww = length(Lon(1,:));
 axl = size(A,1)*size(A,2);
 d = zeros(axl,3);
 
@@ -22,7 +22,7 @@ for i = 1:ll
     ee = ww + (i-1)*ww;
     
     d(bb:ee,3) = A(i,:);
-    d(bb:ee,1) = Lon(i,:); 
+    d(bb:ee,1) = Lon(:,i); 
     d(bb:ee,2) = Lat(i,:);
 
 end
